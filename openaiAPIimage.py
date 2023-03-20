@@ -11,5 +11,6 @@ response = openai.Image.create(
 )
 image_url = response.data[0].url
 
+
 img = Image.open(urlopen(image_url))
 img.show()
