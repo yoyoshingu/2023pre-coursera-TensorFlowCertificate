@@ -1,7 +1,7 @@
 
 import os
 import openai
-openai.api_key = "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"
+openai.api_key = os.getenv("OPENAI_API_KEY")
 
 completion = openai.ChatCompletion.create(
   model="gpt-3.5-turbo",
@@ -27,6 +27,20 @@ print(response)
 print(response.choices[0].text)
 
 
+openai.api_key = os.getenv("OPENAI_API_KEY")
 
+from urllib.request import urlopen
+from PIL import Image
+
+response = openai.Image.create(
+  prompt="juggling players in  miyazaki style",
+  n=1,
+  size="1024x1024"
+)
+image_url = response.data[0].url
+
+
+img = Image.open(urlopen(image_url))
+img.show()
 
 
