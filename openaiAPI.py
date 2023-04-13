@@ -6,7 +6,7 @@ openai.api_key = os.getenv("OPENAI_API_KEY")
 completion = openai.ChatCompletion.create(
   model="gpt-3.5-turbo",
   messages=[
-    {"role": "user", "content": "꽃이란 무엇일까까"}
+    {"role": "user", "content": "37곱하기 28은"}
   ]
 )
 print(completion)
